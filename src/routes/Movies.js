@@ -73,19 +73,19 @@ const Movies = () => {
     const { data, loading } = useQuery(GET_MOVIES);
     return (
         <Container>
-          <Header>
-            <Title>Apollo Movies</Title>
-          </Header>
-          {loading && <Loading>Loading...</Loading>}
-          <MoviesGrid>
-            {data?.allMovies?.map((movie) => (
-              <PosterContainer key={movie.id}>
-                <Link to={`/movies/${movie.id}`}>
-                  <PosterBg background={movie.medium_cover_image} />
-                </Link>
-              </PosterContainer>
-            ))}
-          </MoviesGrid>
+            <Header>
+                <Title>Apollo Movies</Title>
+            </Header>
+            {loading && <Loading>Loading...</Loading>}
+            <MoviesGrid>
+                {data?.allMovies?.map((movie) => (
+                    <PosterContainer key={movie.id}>
+                        <Link to={`/movies/${movie.id}`}>
+                            <PosterBg background={movie.medium_cover_image} />
+                        </Link>
+                    </PosterContainer>
+                ))}
+            </MoviesGrid>
         </Container>
     )
 }
