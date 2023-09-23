@@ -7,27 +7,20 @@ const GET_MOVIES = gql`
             id
             title
         }
-        allTweets {
-            id
-            text
-            author {
-            fullName
-            }
-        }
     }
 `
 
 const Movies = () => {
-    const {data, loading, error} = useQuery(GET_MOVIES);
-    if(loading){
+    const { data, loading, error } = useQuery(GET_MOVIES);
+    if (loading) {
         return <h1>Loading...</h1>
     }
-    if(error){
+    if (error) {
         return <h1>Could not fetch :(</h1>
     }
     return (
         <ul>
-            {data.allMovies.map(movie => 
+            {data.allMovies.map(movie =>
                 <li key={movie.id}>
                     <Link to={`/movies/${movie.id}`}>
                         {movie.title}
